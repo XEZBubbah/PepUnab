@@ -1,9 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
-app.listen(3000, () => {
-  console.log("Server started on port 3000\n");
-})
+app.listen(process.env.PORT || 3000);
 
 /*
 Si no corre, instalar esto npm install express body-parser mongoose cors --save
