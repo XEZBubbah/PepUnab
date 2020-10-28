@@ -1,9 +1,3 @@
-!Controlador/node_modules/
-Controlador/node_modules/*
-
-!node_modules/
-node_modules/*
-
 !cliente/node_modules/
 cliente/node_modules/*
 
