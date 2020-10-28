@@ -1,0 +1,12 @@
+https://www.genbeta.com/desarrollo/fondos-con-degradados-en-css3
+
+https://cssarrowplease.com/
+
+https://www.w3schools.com/howto/howto_css_menu_horizontal_scroll.asp
+
+https://stackoverflow.com/questions/14053970/htmlcss-how-to-add-arrow-to-horizontal-menu-items
+
+
+<router-view/>
+tabla
+https://dev.to/dcodeyt/creating-beautiful-html-tables-with-css-428l
