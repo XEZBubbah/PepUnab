@@ -1,0 +1,11 @@
+!PepUnab2/Controlador/node_modules/
+PepUnab2/Controlador/node_modules/*
+
+!PepUnab2/node_modules/
+PepUnab2/node_modules/*
+
+!PepUnab2/cliente/node_modules/
+PepUnab2/cliente/node_modules/*
+
+
+
