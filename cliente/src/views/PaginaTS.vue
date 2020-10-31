@@ -1,7 +1,13 @@
 <template>
-
+<v-app>
 <div class=container>
 <h1 id="output"></h1>
+<div class="botones">
+    <b-button  type="button" variant="outline-warning"><router-link to='/loginTS' style="color: #050505">Iniciar Sesión</router-link></b-button> |
+    <b-button  type="button" variant="outline-info"><router-link to='/registroTS' style="color: #050505">Registrarse</router-link></b-button> |
+    <b-button  type="button" variant="outline-success"  style="color: #050505">Finalizar Juego</b-button>
+</div>
+<br>
 <div class="target mono" id="target"></div>
 <div id="your-attempt" class="mono your-attempt" placeholder="Your text will appear here"></div>
 <div class="results">
@@ -24,15 +30,18 @@ le dan identidad a la formación ofrecida por la UNAB en su programa de Ingenier
   <a href="#/TypingSpeed" id="reset">Reset</a> |  <a href="#" id="pause">Pause</a>
 </div>
 </div>
-
+<div>
+    <h2 style="margin-top: 3%;text-align: center;">Scores</h2>
+    <b-table style="text-align: center;" striped hover :items="tabla"></b-table>
+</div>
+</v-app>
 </template>
 
 <script>
 
-
+import axios from 'axios';
  const $ = require('jquery')
      window.$ = $
-
 
 var window_focus;
 
@@ -70,9 +79,63 @@ $(document).unbind('keydown').bind('keydown', function (event) {
     }
 });
 
+export default{
+
+  data(){
+    return {
+        tabla: [],
+        elapsedTime: 0,
+        timer: undefined,
+        tiempodeJuego: 0, //En segundos
+        wpm: 0,
+        }
+    },
+    mounted(){
+       let vue = this;
+       var tabla = [ ];
+       axios.get('http://localhost:3000/PepData/getAll/TypingChallenge',{ crossdomain: true })
+       .then(function(response){
+       vue.posts = (response.data)
+       console.log(vue.posts)
+       for (var f in vue.posts) {
+           tabla[f] = {Nombre : String(vue.posts[f].username), Tiempo : String(vue.posts[f].tiempo), WPM : String(vue.posts[f].puntaje), Categoria : String(vue.posts[f].categoria)}
+       }
+           vue.tabla = (tabla)
+       })
+   },
+   actualizarRanking(categoria){
+       axios.put('http://localhost:3000/PepData/put/TypingChallenge/'+this.$sesion+'/'+this.$pass+'/'+
+       this.tiempodeJuego+'/'+this.WPM+'/'+categoria,{crossdomain: true})
+       .then(function(response){
+           console.log(response.data);
+       });
+   },
+   async compActEsta(){
+       return await axios.get('http://localhost:3000/PepData/getUserEstadisticas/TypingChallenge/'+
+       this.$sesion+'/'+this.$pass,{crossdomain: true})
+   },
+   pickCategoria(wpm,puntuacion){
+       var categorias = ['Noob','Principiante','Sargento','Veterano'];
+       if(wpm < 20){
+           return categorias[0];
+       }else if(wpm < 40){
+           return categorias[1];
+       }else if(wpm < 60){
+           return categorias[2];
+       }else{
+           return categorias[3];
+       }
+   },
+
+
+}
+
 
 $(document).ready(function(){
 
+setTimeout(() =>{
+    this.$router.go();
+},1000)
 
 // The base speed per character
 let time_setting = 30;
@@ -178,12 +241,17 @@ $("#input_text").change(function(){
 });
 
 function start(){
+if(this.$sesion == undefined && this.$pass == undefined)
+{
+   alert("Por favor, inicia Sesión o registrate para jugar !! ^-^");
+}else{
   interval_timer = setInterval(function(){
     timer ++;
     $("#timer").text(timer);
     wpm = Math.round(wordcount / (timer / 60));
     $("#wpm").text(wpm);
   }, 1000)
+  }
 }
 
 function stop(){

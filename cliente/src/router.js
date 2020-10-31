@@ -12,7 +12,9 @@ import login from './views/login'
 import registro from './views/registro'
 import registroPal from './views/registroPal'
 import loginPal from './views/loginPal'
+import loginTS from './views/loginTS'
 import PaginaTyping2 from './views/PaginaTS'
+import registroTS from './views/registroTS'
 
 Vue.use(Router)
 
@@ -82,6 +84,16 @@ export default new Router({
             path: '/loginPal',
             name: 'loginPal',
             component: loginPal
+        },
+        {
+            path: '/loginTS',
+            name: 'loginTS',
+            component: loginTS
+        },
+        {
+            path: '/registroTS',
+            name: 'registroTS',
+            component: registroTS
         }
     ]
 })

@@ -9,19 +9,19 @@
         </div>
         <hr>
         <div class="botones">
-            <button type="button" class="btn btn-dark" v-on:click="play(true)">Jugar</button>           
+            <button type="button" class="btn btn-dark" v-on:click="play(true)">Jugar</button>
         </div>
         <hr>
         <div id="user" align="center" style="font-family: Times New Roman">
 
         </div>
             <b-iconstack font-scale="5" animation="spin" style="margin-left:45%;">
-                <b-icon visibility="hidden" id="caritafachera" stacked icon="emoji-sunglasses" variant="success" scale="5.0" 
+                <b-icon visibility="hidden" id="caritafachera" stacked icon="emoji-sunglasses" variant="success" scale="5.0"
                 animation="throb">
                 </b-icon>
              </b-iconstack>
             <b-iconstack font-scale="5" animation="spin" style="margin-left:45%;">
-                <b-icon visibility="hidden" id="caritasad" stacked icon="emoji-dizzy" variant="danger" scale="5.0" 
+                <b-icon visibility="hidden" id="caritasad" stacked icon="emoji-dizzy" variant="danger" scale="5.0"
                 animation="throb">
                 </b-icon>
             </b-iconstack>
@@ -36,7 +36,7 @@
         </div>
         <hr>
         <div class="botones">
-            <button type="button" class="btn btn-dark" v-on:click="comprobar()">Verificar</button> 
+            <button type="button" class="btn btn-dark" v-on:click="comprobar()">Verificar</button>
         </div>
        <div class="texto">
             <br>
@@ -50,7 +50,7 @@
         </div>
         <hr>
         <h1 style="font-family: 'Courier New', Arial, Courier, monospace; font-weight:550;"><router-link to='/'>PEPWEB</router-link></h1>
-    </v-app>  
+    </v-app>
 
 </template>
 
@@ -112,7 +112,7 @@
                 '\n\nEl ranking se actualizará en breve ..... loading');
                 setTimeout(() =>{
                     this.$router.go();
-                },5000) 
+                },5000)
             },
             start() {
                 this.timer = setInterval(() => {
@@ -128,7 +128,7 @@
             async actEsta(){
                 const respuesta = await this.compActEsta();
                 console.log("\n++++++\n")
-                console.log(respuesta.data); 
+                console.log(respuesta.data);
                 this.tiempodb = (respuesta.data[0]);
                 this.aciertosdb = (respuesta.data[1]);
                 if(this.aciertos >= this.respuestasAcertadas){
@@ -194,7 +194,7 @@
                         this.mostrarUser();
                         this.start();
                         ingresePal = '<textarea name="textarea" rows="10" cols="40">  </textarea>'
-                        
+
                         setTimeout(() => {
                             document.getElementById("palabra").innerHTML = userInput;
                             document.getElementById("respuesta").innerHTML = ingresePal;
@@ -211,7 +211,7 @@
                 document.getElementById("user").innerHTML = '<div><p>Usuario: '+this.$sesion+'</p><p>Tiempo: '
                 +this.tiempodeJuego+' Segundos</p><p>Respuestas Acertadas: '+this.respuestasAcertadas+'</p></div>';
              },
-            comprobar(){                
+            comprobar(){
                 this.stop();
                 this.tiempodeJuego = (this.elapsedTime)/1000;
 
@@ -230,7 +230,7 @@
                             document.getElementById("caritasad").style.visibility = "visible";
                             alert("Palabra incorrecta =( sigue intentando ... ");
                             setTimeout(() =>{document.getElementById("caritasad").style.visibility = "hidden";},2000);
-                            this.start();                
+                            this.start();
                         }
                     }
                 console.log(WORDS[randomNumber])

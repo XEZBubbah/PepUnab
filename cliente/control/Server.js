@@ -1,7 +1,9 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
-app.listen(process.env.PORT || 3000);
+app.listen(3000, () => {
+  console.log("Server started on port 3000\n");
+})
 
 /*
 Si no corre, instalar esto npm install express body-parser mongoose cors --save
@@ -69,6 +71,22 @@ app.get('/PepData/getUserVerification/:coleccion/:username', (req, res) => {
   }
 }),
 
+//Get obtener estadisticas de un juegador
+app.get('/PepData/getUserEstadisticas/:coleccion/:username/:password', (req, res) => {
+  try {
+    (async () => {
+      console.log("GET recibido");
+      //res.json(await api.getValidationPasswordDB("Javier","132"));
+      
+      /*Retorna las estadisticas de un jugador ya registrado,
+      si ese usuario no existe retorna null*/
+      res.json(await api.getUsernameStatisticsDB(req.params.coleccion,req.params.username,req.params.password));
+    })()
+  } catch (error) {
+    res.send("Se ha producido un error al verificar PepData");
+  }
+}),
+
 //Post añadir nuevo jugador
 app.post('/PepData/post/:coleccion/:username/:password', (req, res) => {
   try {
@@ -80,21 +98,7 @@ app.post('/PepData/post/:coleccion/:username/:password', (req, res) => {
   } catch (error) {
     res.send("Se ha producido un error al añadir PepData");
   }
-}),
-
-//Get obtener estadisticas de un juegador
-app.get('/PepData/getUserEstadisticas/:coleccion/:username/:password', (req, res) => {
-  try {
-    (async () => {
-      console.log("GET recibido");
-      //res.json(await api.getValidationPasswordDB("Javier","132"));
-      res.json(await api.getUsernameStatisticsDB(req.params.coleccion,req.params.username,req.params.password));
-    })()
-  } catch (error) {
-    res.send("Se ha producido un error al verificar PepData");
-  }
-}),
-
+})
 
 //Put modificar estadisticas de un jugador, el usuario y contraseña no deben cambiar
 app.put('/PepData/put/:coleccion/:username/:password/:tiempo/:puntuacion/:categoria', (req, res) => {
