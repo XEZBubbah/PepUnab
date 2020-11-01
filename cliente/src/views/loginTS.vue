@@ -39,7 +39,7 @@
                 var usuario = this.input.username;
                 var codigo = this.input.password;
                 if(usuario != "" && codigo != ""){
-                    return await axios.get('http://localhost:3000/PepData/getValidation/TypingChallenge/'
+                    return await axios.get('https://pepunab.herokuapp.com/PepData/getValidation/TypingChallenge/'
                     +usuario+'/'+codigo,{crossdomain:true})
                 }else{
                     alert("Se detecto un campo vacio, por favor llenalo")

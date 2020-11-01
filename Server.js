@@ -1,9 +1,16 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
-app.listen(3000, () => {
+const path = require('path');
+const serveStatic = require('serve-static');
+const port = process.env.PORT || 3000;
+app.listen(port, () => 
+  console.log("Server corriendo en puerto "+port)
+);
+
+/*app.listen(3000, () => {
   console.log("Server started on port 3000\n");
-})
+})*/
 
 /*
 Si no corre, instalar esto npm install express body-parser mongoose cors --save
@@ -26,6 +33,9 @@ app.use(function(req, res, next) {
   res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
      next();
 });
+app.use(express.json());
+app.use(cors());
+app.use(serveStatic(__dirname + '/cliente/dist'));
 
 //req.body.coleccion --> existen 3 colecciones en la DB Prueba 
 //RuletaChallenge, TextChallenge, TypingChallenge

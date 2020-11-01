@@ -39,7 +39,7 @@
                     console.log(reb.data);
                     if(reb.data == null){
                         console.log('good');
-                        axios.post('http://localhost:3000/PepData/post/RuletaChallenge/'+this.input.username+'/'+this.input.password,{crossdomain: true}); 
+                        axios.post('https://pepunab.herokuapp.com/PepData/post/RuletaChallenge/'+this.input.username+'/'+this.input.password,{crossdomain: true}); 
                         alert("Registro exitoso, Se creó su usuario :)");
                         setTimeout(() =>{this.$router.push('/loginPal')},2000);
                     }else{
@@ -51,7 +51,7 @@
                 }
             },
             async verRegistro(){
-                return await axios.get('http://localhost:3000/PepData/getUserVerification/RuletaChallenge/'+this.input.username,{crossdomain: true})
+                return await axios.get('https://pepunab.herokuapp.com/PepData/getUserVerification/RuletaChallenge/'+this.input.username,{crossdomain: true})
             }
         }
     }
