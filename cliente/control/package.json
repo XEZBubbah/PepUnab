@@ -4,7 +4,7 @@
     "description": "This example is so cool.",
     "main": "Server.js",
     "scripts": {
-        "start": "node --harmony server.js"
+        "start": "node Server.js"
     },   
     "engines": {
         "node": "10.x"
@@ -12,6 +12,5 @@
     "dependencies": {
         "express": "^4.9.8"
     }
-
 
 }
