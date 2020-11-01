@@ -145,5 +145,5 @@ app.put('/PepData/put/:coleccion/:username/:password/:tiempo/:puntuacion/:catego
     })()
   } catch (error) {
     res.send("Se ha producido un error al actualizar PepData");
-  }  
+  }
 })
