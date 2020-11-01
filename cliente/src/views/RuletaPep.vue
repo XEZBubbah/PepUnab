@@ -151,7 +151,11 @@
       mounted(){
         let vue = this;
         var tabla = [];
+<<<<<<< HEAD
         axios.get('https://pepunab.herokuapp.com/PepData/getAll/RuletaChallenge',{crossdomain: true})
+=======
+        axios.get('PepData/getAll/RuletaChallenge',{crossdomain: true})
+>>>>>>> 5f698bfdc9a874680a387344fa72e6219e85bbd3
         .then(function(response){
           vue.posts = (response.data);
           console.log(vue.posts)
@@ -192,7 +196,11 @@
         },
 
         async compActEsta(){
+<<<<<<< HEAD
           return await axios.get('https://pepunab.herokuapp.com/PepData/getUserEstadisticas/RuletaChallenge/'+
+=======
+          return await axios.get('PepData/getUserEstadisticas/RuletaChallenge/'+
+>>>>>>> 5f698bfdc9a874680a387344fa72e6219e85bbd3
           this.$sesionRuleta+'/'+this.$passRuleta,{crossdomain: true})
         },
 
@@ -202,7 +210,11 @@
         },
 
         actualizarRanking(categoria){
+<<<<<<< HEAD
           axios.put('https://pepunab.herokuapp.com/PepData/put/RuletaChallenge/'+this.$sesionRuleta+'/'+this.$passRuleta+'/'+
+=======
+          axios.put('PepData/put/RuletaChallenge/'+this.$sesionRuleta+'/'+this.$passRuleta+'/'+
+>>>>>>> 5f698bfdc9a874680a387344fa72e6219e85bbd3
           this.tiempodeJuego+'/'+this.respuestasAcertadas+'/'+categoria,{crossdomain: true})
           .then(function(response){
             console.log(response.data);

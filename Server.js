@@ -145,5 +145,14 @@ app.put('/PepData/put/:coleccion/:username/:password/:tiempo/:puntuacion/:catego
     })()
   } catch (error) {
     res.send("Se ha producido un error al actualizar PepData");
-  }
+  }  
 })
+
+if(process.env.NODE_ENV === 'production'){
+  //Static folder
+  app.use(express.static(dirname + '/public'));
+
+app.get(/.*/ , (req, res) => res.sendFile(dirname + '/public/index.html')); 
+//El man lo hace para manejar la SPA 
+}
+const port = process.env.PORT || 3000;
