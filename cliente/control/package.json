@@ -1,8 +1,4 @@
 {
-    "name": "node-example",
-    "version": "1.0.0",
-    "description": "This example is so cool.",
-    "main": "Server.js",
     "scripts": {
         "start": "node Server.js"
     },   
