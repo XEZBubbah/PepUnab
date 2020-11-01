@@ -5,7 +5,7 @@
 <div class="botones">
     <b-button  type="button" variant="outline-warning"><router-link to='/loginTS' style="color: #050505">Iniciar Sesión</router-link></b-button> |
     <b-button  type="button" variant="outline-info"><router-link to='/registroTS' style="color: #050505">Registrarse</router-link></b-button> |
-    <b-button  type="button" variant="outline-success"  style="color: #050505">Finalizar Juego</b-button>
+    <b-button  type="button" variant="outline-success" style="color: #050505">Jugar</b-button>
 </div>
 <br>
 <div class="target mono" id="target"></div>
@@ -133,9 +133,7 @@ export default{
 
 $(document).ready(function(){
 
-setTimeout(() =>{
-    this.$router.go();
-},1000)
+
 
 // The base speed per character
 let time_setting = 30;
@@ -171,7 +169,7 @@ function type(input, target, current, time, random){
  */
 
 var letters = $("#input_text").val();
-var character_length = 31;
+var character_length = 50;
 var index = 0;
 var started = false;
 var current_string = letters.substring(index, index + character_length);
