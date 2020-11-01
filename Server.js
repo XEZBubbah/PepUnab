@@ -119,6 +119,7 @@ app.put('/PepData/put/:coleccion/:username/:password/:tiempo/:puntuacion/:catego
         req.params.coleccion,
         req.params.username,
         req.params.password)
+        
       );
 
       if (filtro==="null"){
