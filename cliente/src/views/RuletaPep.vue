@@ -151,7 +151,7 @@
       mounted(){
         let vue = this;
         var tabla = [];
-        axios.get('http://localhost:3000/PepData/getAll/RuletaChallenge',{crossdomain: true})
+        axios.get('PepData/getAll/RuletaChallenge',{crossdomain: true})
         .then(function(response){
           vue.posts = (response.data);
           console.log(vue.posts)
@@ -192,7 +192,7 @@
         },
 
         async compActEsta(){
-          return await axios.get('http://localhost:3000/PepData/getUserEstadisticas/RuletaChallenge/'+
+          return await axios.get('PepData/getUserEstadisticas/RuletaChallenge/'+
           this.$sesionRuleta+'/'+this.$passRuleta,{crossdomain: true})
         },
 
@@ -202,7 +202,7 @@
         },
 
         actualizarRanking(categoria){
-          axios.put('http://localhost:3000/PepData/put/RuletaChallenge/'+this.$sesionRuleta+'/'+this.$passRuleta+'/'+
+          axios.put('PepData/put/RuletaChallenge/'+this.$sesionRuleta+'/'+this.$passRuleta+'/'+
           this.tiempodeJuego+'/'+this.respuestasAcertadas+'/'+categoria,{crossdomain: true})
           .then(function(response){
             console.log(response.data);
