@@ -13,7 +13,6 @@ import registro from './views/registro'
 import registroPal from './views/registroPal'
 import loginPal from './views/loginPal'
 import loginTS from './views/loginTS'
-import PaginaTyping2 from './views/PaginaTS'
 import registroTS from './views/registroTS'
 
 Vue.use(Router)
@@ -34,11 +33,6 @@ export default new Router({
             path: '/Proposito',
             name: 'proposito',
             component: PaginaProposito
-        },
-        {
-            path: '/TypingSpeed',
-            name: 'typing',
-            component: PaginaTyping2
         },
         {
             path: '/Estudia',
