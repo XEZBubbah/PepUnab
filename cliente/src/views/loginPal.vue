@@ -7,7 +7,7 @@
             <h1>Login</h1>
             <br>
             <div>
-                <input type="text" name="username" v-model="input.username" placeholder="Username" />
+                <input type="text" name="username"  v-model="input.username" placeholder="Username" />
                 <hr>
             </div>
             <div>
