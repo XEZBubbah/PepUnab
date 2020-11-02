@@ -9,12 +9,22 @@
         </div>
         <hr>
         <div class="botones">
-            <button type="button" class="btn btn-dark" v-on:click="play(true)">Jugar</button>           
+            <button type="button" class="btn btn-dark" v-on:click="play(true)">Jugar</button>
         </div>
         <hr>
         <div id="user" align="center" style="font-family: Times New Roman">
 
         </div>
+            <b-iconstack font-scale="5" animation="spin" style="margin-left:45%;">
+                <b-icon visibility="hidden" id="caritafachera" stacked icon="emoji-sunglasses" variant="success" scale="5.0"
+                animation="throb">
+                </b-icon>
+             </b-iconstack>
+            <b-iconstack font-scale="5" animation="spin" style="margin-left:45%;">
+                <b-icon visibility="hidden" id="caritasad" stacked icon="emoji-dizzy" variant="danger" scale="5.0"
+                animation="throb">
+                </b-icon>
+            </b-iconstack>
         <hr>
         <h2>
         <div id="palabra" class="texto2" style="text-align: center;font-family: 'Courier New', Arial, Courier, monospace; font-weight:550;">
@@ -26,7 +36,7 @@
         </div>
         <hr>
         <div class="botones">
-            <button type="button" class="btn btn-dark" v-on:click="comprobar()">Verificar</button> 
+            <button type="button" class="btn btn-dark" v-on:click="comprobar()">Verificar</button>
         </div>
        <div class="texto">
             <br>
@@ -40,7 +50,7 @@
         </div>
         <hr>
         <h1 style="font-family: 'Courier New', Arial, Courier, monospace; font-weight:550;"><router-link to='/'>PEPWEB</router-link></h1>
-    </v-app>  
+    </v-app>
 
 </template>
 
@@ -102,7 +112,7 @@
                 '\n\nEl ranking se actualizará en breve ..... loading');
                 setTimeout(() =>{
                     this.$router.go();
-                },5000) 
+                },5000)
             },
             start() {
                 this.timer = setInterval(() => {
@@ -118,7 +128,7 @@
             async actEsta(){
                 const respuesta = await this.compActEsta();
                 console.log("\n++++++\n")
-                console.log(respuesta.data); 
+                console.log(respuesta.data);
                 this.tiempodb = (respuesta.data[0]);
                 this.aciertosdb = (respuesta.data[1]);
                 if(this.aciertos >= this.respuestasAcertadas){
@@ -129,17 +139,17 @@
             },
             async compActEsta(){
                 return await axios.get('https://pepunab.herokuapp.com/PepData/getUserEstadisticas/TextChallenge/'+
-                this.$sesionRuleta+'/'+this.$passRuleta,{crossdomain: true})
+                this.$sesion+'/'+this.$pass,{crossdomain: true})
             },
             actualizarRanking(categoria){
-                axios.put('https://pepunab.herokuapp.com/PepData/put/TextChallenge/'+this.$sesionRuleta+'/'+this.$passRuleta+'/'+
+                axios.put('https://pepunab.herokuapp.com/PepData/put/TextChallenge/'+this.$sesion+'/'+this.$pass+'/'+
                 this.tiempodeJuego+'/'+this.respuestasAcertadas+'/'+categoria,{crossdomain: true})
                 .then(function(response){
                     console.log(response.data);
                 });
             },
             pickCategoria(tiempo,puntuacion){
-                var categorias = ['Noob','Recluta','Profesional','Killer'];
+                var categorias = ['Noob','Principiante','Sargento','Veterano'];
                 if(tiempo > 300){
                     return categorias[0];
                 }else if(puntuacion > 10 && tiempo < 60){
@@ -173,29 +183,35 @@
             play(playing){
 
                 if(playing == true){
-                    randomNumber = Math.floor(Math.random() * WORDS.length);
-                    var randomWord = SCRAMBLED[randomNumber];
-                    var userInput = randomWord;
-                    this.mostrarUser();
-                    this.start();
-                    ingresePal = '<textarea name="textarea" rows="10" cols="40">  </textarea>'
-                    
-                    setTimeout(() => {
-                        document.getElementById("palabra").innerHTML = userInput;
-                        document.getElementById("respuesta").innerHTML = ingresePal;
-                    },1000)
-                    console.log(userInput);
+                     if(this.$sesion == undefined && this.$pass == undefined)
+                    {
+                        alert("Por favor, inicia Sesión o registrate para jugar !! ^-^");
+                    }
+                    else{
+                        randomNumber = Math.floor(Math.random() * WORDS.length);
+                        var randomWord = SCRAMBLED[randomNumber];
+                        var userInput = randomWord;
+                        this.mostrarUser();
+                        this.start();
+                        ingresePal = '<textarea name="textarea" rows="10" cols="40">  </textarea>'
+
+                        setTimeout(() => {
+                            document.getElementById("palabra").innerHTML = userInput;
+                            document.getElementById("respuesta").innerHTML = ingresePal;
+                        },1000)
+                        console.log(userInput);
+                    }
                     }else{
-                    alert("Juego finalizado ...")
-                    this.reset();
-                    this.stop();
+                        alert("Juego finalizado ...")
+                        this.reset();
+                        this.stop();
                 }
             },
              mostrarUser(){
-                document.getElementById("user").innerHTML = '<div><p>Usuario: '+this.$sesionRuleta+'</p><p>Tiempo: '
+                document.getElementById("user").innerHTML = '<div><p>Usuario: '+this.$sesion+'</p><p>Tiempo: '
                 +this.tiempodeJuego+' Segundos</p><p>Respuestas Acertadas: '+this.respuestasAcertadas+'</p></div>';
              },
-            comprobar(){                
+            comprobar(){
                 this.stop();
                 this.tiempodeJuego = (this.elapsedTime)/1000;
 
@@ -205,12 +221,16 @@
                         if (val == WORDS[randomNumber]) {
                             this.respuestasAcertadas = (this.respuestasAcertadas) + 1;
                             console.log(this.respuestasAcertadas)
+                            document.getElementById("caritafachera").style.visibility = "visible";
                             alert("Bien pusiste la palabra correcta => "+ a);
+                            setTimeout(() =>{document.getElementById("caritafachera").style.visibility = "hidden";},2000);
                             this.play(true);
                         }
                         else  {
+                            document.getElementById("caritasad").style.visibility = "visible";
                             alert("Palabra incorrecta =( sigue intentando ... ");
-                            this.start();                
+                            setTimeout(() =>{document.getElementById("caritasad").style.visibility = "hidden";},2000);
+                            this.start();
                         }
                     }
                 console.log(WORDS[randomNumber])
