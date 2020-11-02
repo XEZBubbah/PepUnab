@@ -74,7 +74,7 @@
          mounted(){
             let vue = this;
             var tabla = [ ];
-            axios.get('https://pepunab.herokuapp.com/#/PepData/getAll/TextChallenge',{ crossdomain: true })
+            axios.get('https://pepunab.herokuapp.com/PepData/getAll/TextChallenge',{ crossdomain: true })
             .then(function(response){
             vue.posts = (response.data)
             console.log(vue.posts)
@@ -128,11 +128,11 @@
                 }
             },
             async compActEsta(){
-                return await axios.get('https://pepunab.herokuapp.com/#/PepData/getUserEstadisticas/TextChallenge/'+
+                return await axios.get('https://pepunab.herokuapp.com/PepData/getUserEstadisticas/TextChallenge/'+
                 this.$sesionRuleta+'/'+this.$passRuleta,{crossdomain: true})
             },
             actualizarRanking(categoria){
-                axios.put('https://pepunab.herokuapp.com/#/PepData/put/TextChallenge/'+this.$sesionRuleta+'/'+this.$passRuleta+'/'+
+                axios.put('https://pepunab.herokuapp.com/PepData/put/TextChallenge/'+this.$sesionRuleta+'/'+this.$passRuleta+'/'+
                 this.tiempodeJuego+'/'+this.respuestasAcertadas+'/'+categoria,{crossdomain: true})
                 .then(function(response){
                     console.log(response.data);
