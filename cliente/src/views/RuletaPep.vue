@@ -5,8 +5,7 @@
         <b-button  type="button" variant="outline-info"><router-link to='/registro' style="color: #050505">Registrarse</router-link></b-button> |
         <b-button  type="button" variant="outline-success" @click="finishGame" style="color: #050505">Finalizar Juego</b-button>
     </div>
-    <hr>
-    <div align="center" style="font-family:  Cambria">
+    <div align="center" style="font-family: Times New Roman">
       <h1>RULETA PEP</h1>
       <div id="mydiv">
         <div id="user">
@@ -49,7 +48,7 @@
         <div class="wheel-bg" :class="{freeze: freeze}" :style="`transform: rotate(${wheelDeg}deg)`">
           <div class="prize-list">
             <div class="prize-item-wrapper" v-for="(item,index) in prizeList" :key="index">
-              <div class="prize-item" :style="`transform: rotate(${(720/ prizeList.length) * index}deg)`">
+              <div class="prize-item" :style="`transform: rotate(${(360/ prizeList.length) * index}deg)`">
                 <div class="prize-name">
                   {{ item.numero }}
                 </div>
@@ -88,6 +87,9 @@
     "¿Competencia fundamental de un ingeniero de sistemas UNAB?",
     "¿Cual es una rama de trabajo de la ingeniería de sistemas?",
     "¿Cuál es el propósito central de la ingeniería de sistemas?",
+    "¿Cuál de las siguientes no es una tendencia de la ingeniería de sistemas?",
+    "El programa de Ingeniería de Sistemas de la UNAB considera fundamental una formación interdisciplinaria desde una visión sistémica",
+    "En la línea de investigación qué competencias fundamentales se desarrollan"
   ]
   var respuestas = [
     ["2024","2023","2025"],
@@ -97,7 +99,11 @@
     ["Economía.","Electrónica.","Inteligencia Artificial."],
     ["Formamos ingenieros de sistemas innovadores con pensamiento disruptivo que promueven la transformación digital en un mundo en constante evolución.",
      "Formamos personas innovadoras que promueven la transformación digital en un mundo en constante evolución.",
-     "Formamos ingenieros de sistemas innovadores con que promueven la transformación digital en un mundo en constante evolución."],
+     "Formamos ingenieros de sistemas innovadores con que promueven la transformación digital en un mundo en constante evolución."
+    ],
+    ["Eficiencia energetica","Realidad virtual","Ciencia de datos","Programación de microcontroladores"],
+    ["Sí","No","No sé, todo es relativo","Todas"],
+    ["Diseñar,modelar,evaluar,adaptar","Diseñar,modelar,alinear,adaptar","Modelar,Diseñar,Programar,Desplegar","Ninguna"]
   ]
   var resp_correctas = [
     '2024',
@@ -105,6 +111,9 @@
     'Capacidad de insertar su labor en el contexto próximo y en el contexto amplio de la sociedad de manera ética.',
     'Inteligencia Artificial.',
     'Formamos ingenieros de sistemas innovadores con pensamiento disruptivo que promueven la transformación digital en un mundo en constante evolución.',
+    "Programación de microcontroladores",
+    "Sí",
+    "Diseñar,modelar,evaluar,adaptar"
   ]
   var guardarResp = []
   
@@ -123,7 +132,7 @@
           freeze: false,
           rolling: false,
           wheelDeg: 0,
-          prizeNumber: 5,
+          prizeNumber: 8,
           prizeListOrigin: [
             {
               name: "¿Para que año se tiene pensado cumplir el objetivo retador del programa de ingeniería de sistemas?",
@@ -145,6 +154,18 @@
               name: "¿Cuál es el propósito central de la ingeniería de sistemas?",
               numero: "Pregunta 5"
             },
+            {
+              name: "¿Cuál de las siguientes no es una tendencia de la ingeniería de sistemas?",
+              numero: "Pregunta 6"
+            },
+            {
+              name: "El programa de Ingeniería de Sistemas de la UNAB considera fundamental una formación interdisciplinaria desde una visión sistémica",
+              numero: "Pregunta 7"
+            },
+            {
+              name: "En la línea de investigación qué competencias fundamentales se desarrollan",
+              numero: "Pregunta 8"
+            },
           ]
         };
       },
@@ -154,7 +175,7 @@
         axios.get('https://pepunab.herokuapp.com/PepData/getAll/RuletaChallenge',{crossdomain: true})
         .then(function(response){
           vue.posts = (response.data);
-          console.log(vue.posts)
+          //console.log(vue.posts)
           for (var f in vue.posts) {
             tabla[f] = {
             Nombre : String(vue.posts[f].username), 
@@ -177,20 +198,15 @@
         },
       },
       methods: {
-
         async actEsta(){
           const respuesta = await this.compActEsta();
-          console.log("\n++++++\n")
-          console.log(respuesta.data); 
+          //console.log("\n++++++\n")
+          //console.log(respuesta.data); 
           this.tiempodb = (respuesta.data[0]);
           this.aciertosdb = (respuesta.data[1]);
-          if(this.aciertos >= this.respuestasAcertadas){
-            console.log("Sigue intentando");
-          }else{
-            this.actualizarRanking(this.pickCategoria(this.tiempodeJuego,this.respuestasAcertadas));
-          }
+          this.actualizarRanking(this.pickCategoria(this.tiempodeJuego,this.respuestasAcertadas));
         },
-
+        
         async compActEsta(){
           return await axios.get('https://pepunab.herokuapp.com/PepData/getUserEstadisticas/RuletaChallenge/'+
           this.$sesionRuleta+'/'+this.$passRuleta,{crossdomain: true})
