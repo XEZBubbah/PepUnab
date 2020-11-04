@@ -42,9 +42,9 @@
     <h2 style="margin-top: 3%;text-align: center;">Scores</h2>
     <b-table style="text-align: center;" striped hover :items="tabla"></b-table>
 </div>
-<div id="user" align="center" style="font-family: Times New Roman">
-
-        </div>
+<br>
+<hr>
+<h1 style="font-family: 'Courier New', Arial, Courier, monospace; font-weight:550;"><router-link to='/'>PEPWEB</router-link></h1>
 </v-app>
 </template>
 

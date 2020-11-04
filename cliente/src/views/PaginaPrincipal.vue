@@ -27,9 +27,7 @@
       <br>
     </p>
     <hr>
-    <a class="navbar-brand" href="PaginaPrincipal.vue">
-      <h1 style="font-family: 'Courier New', Arial, Courier, monospace; font-weight:550;">PEPWEB</h1>
-    </a>
+    <h1 style="font-family: 'Courier New', Arial, Courier, monospace; font-weight:550;"><router-link to='/'>PEPWEB</router-link></h1>
   </v-app>
 </template>
 
