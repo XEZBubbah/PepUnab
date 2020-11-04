@@ -107,7 +107,7 @@ export default{
     mounted(){
        let vue = this;
        var tabla = [ ];
-       axios.get('http://localhost:3000/PepData/getAll/TypingChallenge',{ crossdomain: true })
+       axios.get('https://pepunab.herokuapp.com/PepData/getAll/TypingChallenge',{ crossdomain: true })
        .then(function(response){
        vue.posts = (response.data)
        console.log(vue.posts)
@@ -132,7 +132,7 @@ export default{
        }
    },
    actualizarRanking(categoria,timer,wpm){
-       axios.put('http://localhost:3000/PepData/put/TypingChallenge/'+window.myGlobalName+'/'+window.myGlobalPass+'/'+
+       axios.put('https://pepunab.herokuapp.com/PepData/put/TypingChallenge/'+window.myGlobalName+'/'+window.myGlobalPass+'/'+
        timer+'/'+wpm+'/'+categoria,{crossdomain: true})
        .then(function(response){
            console.log(response);

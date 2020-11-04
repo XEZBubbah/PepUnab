@@ -44,7 +44,7 @@
                 if(usuario != "" && codigo != ""){
                     window.myGlobalName = usuario;
                     window.myGlobalPass = codigo;
-                    return await axios.get('http://localhost:3000/PepData/getValidation/TypingChallenge/'
+                    return await axios.get('https://pepunab.herokuapp.com/PepData/getValidation/TypingChallenge/'
                     +usuario+'/'+codigo,{crossdomain:true})
 
                 }else{
