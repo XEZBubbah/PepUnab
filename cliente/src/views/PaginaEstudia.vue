@@ -9,6 +9,7 @@
     <br>
   </div>
 
+
   <div class=texto>
     <p id="info">Los docentes del programa integran y apropian enfoques pedagógicos reconocidos por la comunidad académica. Propuestas como el aprendizaje centrado en el estudiante, el aprendizaje basado en proyectos, aprendizaje basado en problemas y el aprendizaje basado en casos.
       <br>
