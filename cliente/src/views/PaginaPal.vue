@@ -81,7 +81,7 @@
                 respuestasAcertadas: 0,
             }
         },
-         mounted(){
+        mounted(){
             let vue = this;
             var tabla = [ ];
             axios.get('https://pepunab.herokuapp.com/PepData/getAll/TextChallenge',{ crossdomain: true })
@@ -95,12 +95,14 @@
             })
         },
         computed:{
+
             formattedElapsedTime() {
                 const date = new Date(null);
                 date.setSeconds(this.elapsedTime / 1000);
                 const utc = date.toUTCString();
                 return utc.substr(utc.indexOf(":") - 2, 8);
             }
+
         },
 
         methods:{
