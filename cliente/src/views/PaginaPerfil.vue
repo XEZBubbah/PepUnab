@@ -52,9 +52,9 @@
     </div>
 
     <div class="botones">
-      <button type="button" class="btn btn-dark"><a href="#"><router-link to='/RuletaPep'>RuletaPEP</router-link></a></button>  |
-      <button type="button" class="btn btn-dark"><a href="#"><router-link to='/Palabra'>OrdenaPalabra</router-link></a></button> |
-      <button type="button" class="btn btn-dark"><a href="#"><router-link to='/TypingSpeed'>Typing Text</router-link></a></button>
+      <button type="button" class="btn btn-dark"><a href="#" ><router-link style="color: #FFFFFF" to='/RuletaPep'>RuletaPEP</router-link></a></button>  |
+      <button type="button" class="btn btn-dark"><a href="#" ><router-link style="color: #FFFFFF" to='/Palabra'>OrdenaPalabra</router-link></a></button> |
+      <button type="button" class="btn btn-dark"><a href="#" ><router-link style="color: #FFFFFF" to='/TypingSpeed'>Typing Text</router-link></a></button>
     </div>
     <hr>
     <h1 style="font-family: 'Courier New', Arial, Courier, monospace; font-weight:550;"><router-link to='/'>PEPWEB</router-link></h1>

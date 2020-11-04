@@ -14,6 +14,7 @@ import registroPal from './views/registroPal'
 import loginPal from './views/loginPal'
 import loginTS from './views/loginTS'
 import registroTS from './views/registroTS'
+import PaginaTyping1 from './views/PaginaTS1'
 
 Vue.use(Router)
 
@@ -23,6 +24,11 @@ export default new Router({
             path: '/',
             name: 'home',
             component: PaginaPrincipal
+        },
+        {
+            path: '/TypingSpeed',
+            name: 'TS1',
+            component: PaginaTyping1
         },
         {
             path: '/Contexto',

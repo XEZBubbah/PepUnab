@@ -24,6 +24,9 @@
 <script>
     import axios from 'axios';
     import Vue from 'vue';
+    const $ = require('jquery')
+        window.$ = $
+
 
     export default {
         data() {
@@ -39,8 +42,11 @@
                 var usuario = this.input.username;
                 var codigo = this.input.password;
                 if(usuario != "" && codigo != ""){
-                    return await axios.get('https://pepunab.herokuapp.com/PepData/getValidation/TypingChallenge/'
+                    window.myGlobalName = usuario;
+                    window.myGlobalPass = codigo;
+                    return await axios.get('http://localhost:3000/PepData/getValidation/TypingChallenge/'
                     +usuario+'/'+codigo,{crossdomain:true})
+
                 }else{
                     alert("Se detecto un campo vacio, por favor llenalo")
                 }
@@ -49,15 +55,15 @@
             async login(){
                 try {
                     const response = await this.establecerSesion();
-                    /*console.log(response.data[0]['username']);
-                    console.log(response.data[0]['password']);*/
+                    console.log(response.data[0]['username']);
+                    console.log(response.data[0]['password']);
 
-                    Vue.prototype.$sesion = response.data[0]['username'];
-                    Vue.prototype.$pass = response.data[0]['password'];
+                    Vue.prototype.$uzer = response.data[0]['username'];
+                    Vue.prototype.$pasd = response.data[0]['password'];
 
                     console.log('good');
                     alert("Has iniciado sesión :) \nPreparate para jugar!!!!");
-                    setTimeout(() =>{this.$router.push('/TypingSpeed')},2000);
+                      setTimeout(() =>{this.$router.push('/TypingSpeed')},2000);
                 } catch (error) {
                     alert("Usuario o contraseña incorrectos");
                     console.log("Se produjo un error al establecer sesión");
