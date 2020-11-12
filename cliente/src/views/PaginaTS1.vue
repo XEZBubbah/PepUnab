@@ -1,5 +1,11 @@
 <template>
 <v-app>
+
+<div>
+    <h2 style="margin-top: 3%;text-align: center;">Scores</h2>
+    <b-table style="text-align: center;" striped hover :items="tabla"></b-table>
+</div>
+
 <div class=container>
 <h1 id="output">¿Qué tan rápido puedes escribir?</h1>
 <hr>
@@ -37,10 +43,7 @@
   <a href="#/TypingSpeed" id="reset">Reset</a>
 </div>
 </div>
-<div>
-    <h2 style="margin-top: 3%;text-align: center;">Scores</h2>
-    <b-table style="text-align: center;" striped hover :items="tabla"></b-table>
-</div>
+
 <br>
 <hr>
 <h1 style="font-family: 'Courier New', Arial, Courier, monospace; font-weight:550;"><router-link to='/'>PEPWEB</router-link></h1>
@@ -152,10 +155,7 @@ export default{
 }
 }
 
-$(window).keypress(function(e) {
-         if (e.which == 32)
-             return false;
-     });
+
 
 var letters = " El documento presenta los orígenes de la profesión, el contexto general y el contexto específico de la Ingeniería de Sistemas, la coherencia entre el proyecto educativo institucional y este proyecto educativo de programa, la misión, visión, los elementos fundamentales del modelo educativo y pedagógico del programa y las estrategias pedagógicas que le dan identidad a la formación ofrecida por la UNAB en su programa de Ingeniería de Sistemas.";
 var character_length = 50;
@@ -208,10 +208,11 @@ var interval_timer;
 let vue = this;
 
 
-$("#reset").click(function(){
+
+
+$("body").on("click", "#reset", function() {
   reset();
 });
-
 
 function start(){
   interval_timer = setInterval(function(){
