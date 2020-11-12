@@ -8,9 +8,9 @@
 
     <div class=tab>
       <ul class="nav nav-tabs">
-        <li><a data-toggle="tab" href="#P">Perfil</a></li>
-        <li><a data-toggle="tab" href="#C">Competencias</a></li>
-        <li><a data-toggle="tab" href="#OF">Objeto de Formación</a></li>
+        <li class="lol"><a data-toggle="tab" href="#P">Perfil</a></li>
+        <li class="lol"><a data-toggle="tab" href="#C">Competencias</a></li>
+        <li class="lol"><a data-toggle="tab" href="#OF">Objeto de Formación</a></li>
       </ul>
 
       <div class="tab-content">
@@ -79,7 +79,7 @@ export default {
   width:48%;
 }
 
-li{
+.lol{
 width:33.3333%;
 text-align:center;
 }

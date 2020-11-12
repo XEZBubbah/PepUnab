@@ -9,7 +9,7 @@
     <br>
   </div>
 
-  <div class=texto>
+  <div>
     <p id="info">Los docentes del programa integran y apropian enfoques pedagógicos reconocidos por la comunidad académica. Propuestas como el aprendizaje centrado en el estudiante, el aprendizaje basado en proyectos, aprendizaje basado en problemas y el aprendizaje basado en casos.
       <br>
       <br>
@@ -99,9 +99,6 @@
 
 <style>
 
-.texto{
-  width:100%;
-}
 
 .botones{
   margin:auto;
@@ -120,16 +117,12 @@
 #info{
   font-family: 'Courier New', Arial, Courier, monospace;
   font-weight:550;
-  text-align: justify;
   background-color: transparent;
 }
 
 section{
   width: 100%;
   height: 80vh;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-          padding: 80px 0;
 }
 .card{
   position: relative;

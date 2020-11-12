@@ -5,52 +5,59 @@
       <img src="../Imagenes/proposito.jpg" align="middle" width="300"/>
     </p>
     <p style="font-family: 'Courier New', Arial, Courier, monospace; font-weight:550;">
-<div class="texto">
+<div class="tab-content">
   <ul class="nav nav-tabs">
-    <li class="active"><a data-toggle="tab" href="#PCI">Proposito Central de la Ingeniera de Sistemas</a></li>
-    <li><a data-toggle="tab" href="#ORF">Objetivo Retador Facultad de Ingenieria</a></li>
-    <li><a data-toggle="tab" href="#PCP">Proposito Central Programa de Ingenieria de Sistemas</a></li>
-    <li><a data-toggle="tab" href="#ORP">Objetivo Retador Programa de Ingeniera de Sistemas</a></li>
+    <li class="lola"><a data-toggle="tab" href="#PCI">Proposito Central de la Ingeniera de Sistemas</a></li>
+    <li class="lola"><a data-toggle="tab" href="#ORF">Objetivo Retador Facultad de Ingenieria</a></li>
+    <li class="lola"><a data-toggle="tab" href="#PCP">Proposito Central Programa de Ingenieria de Sistemas</a></li>
+    <li class="lola"><a data-toggle="tab" href="#ORP">Objetivo Retador Programa de Ingeniera de Sistemas</a></li>
   </ul>
 </div>
 
 <div class="tab-content">
   <div id="PCI" class="tab-pane fade in active">
+    <br>
     <h4 class="texto">Proposito Central de la Ingeniera de Sistemas</h4>
-    <p class="texto">
-        Formamos ingenieros de sistemas innovadores con pensamiento disruptivo que promueven la transformación digital 
+    <p>
+      <br>
+        Formamos ingenieros de sistemas innovadores con pensamiento disruptivo que promueven la transformación digital
         en un mundo en constante evolución.
         <br>
         </p>
   </div>
   <div id="ORF" class="tab-pane fade">
+    <br>
     <h4 class="texto">Objetivo Retador Facultad de Ingenieria</h4>
-    <p class="texto">
+    <p>
+      <br>
         Para el 2024 la Facultad de Ingeniería de la UNAB tendrá el 70% de sus programas de pregrado acreditados nacionalmente
         y al menos dos programas de pregrado acreditados internacionalmente.
       <br>
       </p>
   </div>
   <div id="PCP" class="tab-pane fade">
+    <br>
     <h4 class="texto">Proposito Central Programa de Ingenieria de Sistemas</h4>
-    <p class="texto">
+    <p>
+      <br>
       Formamos ingenieros creativos e innovadores para un mundo sostenible.
       <br>
       </p>
   </div>
   <div id="ORP" class="tab-pane fade">
+  <br>
     <h4 class="texto">Objetivo Retador Programa de Ingeniera de Sistemas</h4>
-    <p class="texto"> 
+    <p>
       <br>
-        Para el 2024 el programa de Ingeniería de Sistemas de la UNAB tendrá acreditación nacional e internacional de alta calidad. Será 
-        reconocido por su pertinencia e innovación curricular, su influencia en el desarrollo del país mediante proyectos de investigación y 
+        Para el 2024 el programa de Ingeniería de Sistemas de la UNAB tendrá acreditación nacional e internacional de alta calidad. Será
+        reconocido por su pertinencia e innovación curricular, su influencia en el desarrollo del país mediante proyectos de investigación y
         extensión, y la oferta de una certificación internacional; ubicándose dentro de los 20 mejores programas del país.
         <br>
     </p>
   </div>
 </div>
     <hr>
-    
+
   <div class="botones">
     <button type="button" class="btn btn-dark" ><a href="#"><router-link style="color: #FFFFFF" to='/RuletaPep'>RuletaPEP</router-link></a></button>  |
     <button type="button" class="btn btn-dark"><a href="#"><router-link style="color: #FFFFFF" to='/Palabra'>OrdenaPalabra</router-link></a></button> |
@@ -74,21 +81,22 @@ export default {
 </script>
 
 <style>
+
 .botones{
   margin:auto;
   text-align: center;
   width:48%;
 }
 
-.texto{
-  margin:auto;
-  text-align: justify;
-  width:48%;
-}
-
 p.centrado {
   text-align: center;
 }
+
+.lola{
+  width:50%;
+  text-align:center;
+}
+
 #img1,#img2 {
   width: 350px;
   height: 250px;

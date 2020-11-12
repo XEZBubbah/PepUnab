@@ -20,12 +20,9 @@
       le dan identidad a la formación ofrecida por la UNAB en su programa de Ingeniería de Sistemas.
       Aprende sobre el por medio de este sitio web dinámico.
       <br>
-      <br>
     </p>
-    <p>
-      <br>
-      <br>
-    </p>
+    <a class="dropdown-item" href="/peplibro.pdf" style="text-align:center;" download>Descarga el Material Teorico</a>
+
     <hr>
     <h1 style="font-family: 'Courier New', Arial, Courier, monospace; font-weight:550;"><router-link to='/'>PEPWEB</router-link></h1>
   </v-app>
@@ -72,6 +69,7 @@ export default {
        this.message = response.data;
      });
   }
+
 },
 };
 </script>
