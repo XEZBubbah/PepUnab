@@ -5,8 +5,7 @@
 <hr>
 <div class="botones">
     <b-button  type="button" variant="outline-warning"><router-link to='/loginTS' style="color: #050505">Iniciar Sesión</router-link></b-button> |
-    <b-button  type="button" variant="outline-info"><router-link to='/registroTS' style="color: #050505">Registrarse</router-link></b-button> |
-    <b-button  type="button" id="eo" variant="outline-success"   style="color: #050505">Registrar información</b-button>
+    <b-button  type="button" variant="outline-info"><router-link to='/registroTS' style="color: #050505">Registrarse</router-link></b-button>
 </div>
 <hr>
 <div class="reglas">
@@ -57,10 +56,7 @@ import axios from 'axios';
  const $ = require('jquery')
      window.$ = $
 
-$(window).keypress(function(e) {
-         if (e.which == 32)
-             return false;
-     });
+
 
 
 $(document).unbind('keydown').bind('keydown', function (event) {
@@ -145,14 +141,21 @@ export default{
         console.log(wpm)
         console.log(window.myGlobalName)
         console.log(window.myGlobalPass)
-        this.actualizarRanking(this.pickCategoria(wpm),timer,wpm)
-        setTimeout(() =>{window.history.go()},2000);
+        if(window.myGlobalName == null){
+            alert("Inicia sesión para poder registrar tus datos");
+        }else{
+          this.actualizarRanking(this.pickCategoria(wpm),timer,wpm)
+          setTimeout(() =>{window.history.go()},2000);
+        }
    }
 
 }
 }
 
-
+$(window).keypress(function(e) {
+         if (e.which == 32)
+             return false;
+     });
 
 var letters = " El documento presenta los orígenes de la profesión, el contexto general y el contexto específico de la Ingeniería de Sistemas, la coherencia entre el proyecto educativo institucional y este proyecto educativo de programa, la misión, visión, los elementos fundamentales del modelo educativo y pedagógico del programa y las estrategias pedagógicas que le dan identidad a la formación ofrecida por la UNAB en su programa de Ingeniería de Sistemas.";
 var character_length = 50;
