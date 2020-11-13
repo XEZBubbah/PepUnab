@@ -33,13 +33,13 @@
   <div class="container">
     <div class="row">
       <div class="col-sm">
-        <div id="preguntas" style="margin-left: 10px; margin-left: -100px"></div>
-        <div id="respuestas" style="margin-top: 5%; margin-left: -100px"></div>
-        <b-button disabled id="responder" type="button" variant="danger" style="margin-top: 30px; margin-left: -100px"
+        <div id="preguntas" align="left"></div>
+        <div id="respuestas" align="left" style="margin-top: 40px;"></div>
+        <b-button disabled id="responder" type="button" variant="danger" style="margin-top: 30px; margin-left: -300px" 
         v-on:click="comprobar">Responder</b-button>
       </div>
 
-      <div class="col-sm" style="margin-top: 16%">
+      <div class="col-sm" style="margin-top: 6%; margin-left: -30px;">
         <div class="wheel-wrapper">
         <div class="wheel-pointer" @click="onClickRotate">
           Start
@@ -61,7 +61,7 @@
     </div>
   </div>
   <div>
-    <h2 style="margin-top: 32%;text-align: center;">Scores</h2>
+    <h2 style="margin-top: 25%;text-align: center;">Scores</h2>
     <b-table style="text-align: center;" striped hover :items="tabla"></b-table>
   </div>
   <div>
@@ -383,7 +383,7 @@
     height: 600px;
     position: absolute;
     top: 55%;
-    left: 60%;
+    left: 70%;
     transform: translate(-50%, -50%);
   }
 
