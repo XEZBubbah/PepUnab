@@ -61,7 +61,7 @@
     </div>
   </div>
   <div>
-    <h2 style="margin-top: 25%;text-align: center;">Scores</h2>
+    <h2 style="margin-top: 30%;text-align: center;">Scores</h2>
     <b-table style="text-align: center;" striped hover :items="tabla"></b-table>
   </div>
   <div>
