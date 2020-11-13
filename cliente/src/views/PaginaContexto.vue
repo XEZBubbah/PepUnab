@@ -29,7 +29,7 @@
   <div class="tab-content">
     <div id="Energia" class="tab-pane fade in active">
     <br>
-      <h4 style="text-align: center;">Eficiencia energetica</h4>
+      <h4 style="text-align: center;">Eficiencia energética</h4>
       <p>
         <br>
       Definimos eficiencia energética como el uso eficiente de la energía. Un aparato, proceso o instalación es energéticamente eficiente

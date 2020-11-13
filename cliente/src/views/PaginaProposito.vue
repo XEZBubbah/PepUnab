@@ -1,15 +1,15 @@
 <template>
   <v-app>
-    <h2 style="text-align: center;font-family: 'Courier New', Arial, Courier, monospace; font-weight:550;">¿Cuál es el proposito de la ingenieria de sistemas?</h2>
+    <h2 style="text-align: center;font-family: 'Courier New', Arial, Courier, monospace; font-weight:550;">¿Cuál es el Propósito de la ingenieria de sistemas?</h2>
      <p class="centrado">
-      <img id="imgaa" src="../Imagenes/proposito.jpg" align="middle" width="400"/>
+      <img id="imgaa" src="../Imagenes/Propósito.jpg" align="middle" width="400"/>
     </p>
     <p style="font-family: 'Courier New', Arial, Courier, monospace; font-weight:550;">
 <div class=tab>
   <ul class="nav nav-tabs">
-    <li class="lola"><a data-toggle="tab" href="#PCI">Proposito Central de la Ingeniera de Sistemas</a></li>
+    <li class="lola"><a data-toggle="tab" href="#PCI">Propósito Central de la Ingeniera de Sistemas</a></li>
     <li class="lola"><a data-toggle="tab" href="#ORF">Objetivo Retador Facultad de Ingenieria</a></li>
-    <li class="lola"><a data-toggle="tab" href="#PCP">Proposito Central Programa de Ingenieria de Sistemas</a></li>
+    <li class="lola"><a data-toggle="tab" href="#PCP">Propósito Central Programa de Ingenieria de Sistemas</a></li>
     <li class="lola"><a data-toggle="tab" href="#ORP">Objetivo Retador Programa de Ingeniera de Sistemas</a></li>
   </ul>
 
@@ -17,7 +17,7 @@
 <div class="tab-content">
   <div id="PCI" class="tab-pane fade in active">
     <br>
-    <h4 class="qtal">Proposito Central de la Ingeniera de Sistemas</h4>
+    <h4 class="qtal">Propósito Central de la Ingeniera de Sistemas</h4>
     <br>
     <p>
 
@@ -38,7 +38,7 @@
   </div>
   <div id="PCP" class="tab-pane fade">
     <br>
-    <h4 class="qtal">Proposito Central Programa de Ingenieria de Sistemas</h4>
+    <h4 class="qtal">Propósito Central Programa de Ingenieria de Sistemas</h4>
     <p>
       <br>
       Formamos ingenieros creativos e innovadores para un mundo sostenible.
