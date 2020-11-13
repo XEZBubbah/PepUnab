@@ -94,7 +94,7 @@ text-align:center;
   margin: auto;
   border: 3px;
   padding: 10px;
-  width: 100%;
+  width: 90%;
 }
 
 .info{

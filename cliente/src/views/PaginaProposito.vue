@@ -2,24 +2,25 @@
   <v-app>
     <h2 style="text-align: center;font-family: 'Courier New', Arial, Courier, monospace; font-weight:550;">¿Cuál es el proposito de la ingenieria de sistemas?</h2>
      <p class="centrado">
-      <img src="../Imagenes/proposito.jpg" align="middle" width="300"/>
+      <img id="imgaa" src="../Imagenes/proposito.jpg" align="middle" width="400"/>
     </p>
     <p style="font-family: 'Courier New', Arial, Courier, monospace; font-weight:550;">
-<div class="tab-content">
+<div class=tab>
   <ul class="nav nav-tabs">
     <li class="lola"><a data-toggle="tab" href="#PCI">Proposito Central de la Ingeniera de Sistemas</a></li>
     <li class="lola"><a data-toggle="tab" href="#ORF">Objetivo Retador Facultad de Ingenieria</a></li>
     <li class="lola"><a data-toggle="tab" href="#PCP">Proposito Central Programa de Ingenieria de Sistemas</a></li>
     <li class="lola"><a data-toggle="tab" href="#ORP">Objetivo Retador Programa de Ingeniera de Sistemas</a></li>
   </ul>
-</div>
+
 
 <div class="tab-content">
   <div id="PCI" class="tab-pane fade in active">
     <br>
-    <h4 class="texto">Proposito Central de la Ingeniera de Sistemas</h4>
+    <h4 class="qtal">Proposito Central de la Ingeniera de Sistemas</h4>
+    <br>
     <p>
-      <br>
+
         Formamos ingenieros de sistemas innovadores con pensamiento disruptivo que promueven la transformación digital
         en un mundo en constante evolución.
         <br>
@@ -27,7 +28,7 @@
   </div>
   <div id="ORF" class="tab-pane fade">
     <br>
-    <h4 class="texto">Objetivo Retador Facultad de Ingenieria</h4>
+    <h4 class="qtal" >Objetivo Retador Facultad de Ingenieria</h4>
     <p>
       <br>
         Para el 2024 la Facultad de Ingeniería de la UNAB tendrá el 70% de sus programas de pregrado acreditados nacionalmente
@@ -37,7 +38,7 @@
   </div>
   <div id="PCP" class="tab-pane fade">
     <br>
-    <h4 class="texto">Proposito Central Programa de Ingenieria de Sistemas</h4>
+    <h4 class="qtal">Proposito Central Programa de Ingenieria de Sistemas</h4>
     <p>
       <br>
       Formamos ingenieros creativos e innovadores para un mundo sostenible.
@@ -46,7 +47,7 @@
   </div>
   <div id="ORP" class="tab-pane fade">
   <br>
-    <h4 class="texto">Objetivo Retador Programa de Ingeniera de Sistemas</h4>
+    <h4 class="qtal">Objetivo Retador Programa de Ingeniera de Sistemas</h4>
     <p>
       <br>
         Para el 2024 el programa de Ingeniería de Sistemas de la UNAB tendrá acreditación nacional e internacional de alta calidad. Será
@@ -54,6 +55,7 @@
         extensión, y la oferta de una certificación internacional; ubicándose dentro de los 20 mejores programas del país.
         <br>
     </p>
+  </div>
   </div>
 </div>
     <hr>
@@ -88,8 +90,16 @@ export default {
   width:48%;
 }
 
+.qtal{
+  text-align:center;
+}
+
 p.centrado {
   text-align: center;
+}
+
+#imgaa{
+  border-radius:10%;
 }
 
 .lola{
@@ -102,11 +112,6 @@ p.centrado {
   height: 250px;
   object-fit: cover;
 }
-.tab{
-  margin: auto;
-  width: 50%;
-  border: 3px;
-  padding: 10px;
-}
+
 
 </style>

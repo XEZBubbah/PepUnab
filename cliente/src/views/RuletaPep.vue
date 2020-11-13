@@ -1,5 +1,5 @@
 <template>
-  <v-app id="body">  
+  <v-app id="body">
     <div class="botones">
         <b-button  type="button" variant="outline-warning"><router-link to='/login' style="color: #050505">Iniciar Sesión</router-link></b-button> |
         <b-button  type="button" variant="outline-info"><router-link to='/registro' style="color: #050505">Registrarse</router-link></b-button> |
@@ -10,21 +10,21 @@
       <div id="mydiv">
         <div id="user">
 
-        </div>        
+        </div>
         <h1>
           <p>{{formattedElapsedTime}}</p>
         </h1>
       </div>
     </div>
-    
+
     <div>
       <b-iconstack font-scale="5" animation="spin" style="margin-left:45%;">
-        <b-icon visibility="hidden" id="caritafachera" stacked icon="emoji-sunglasses" variant="success" scale="5.0" 
+        <b-icon visibility="hidden" id="caritafachera" stacked icon="emoji-sunglasses" variant="success" scale="5.0"
         animation="throb">
         </b-icon>
       </b-iconstack>
       <b-iconstack font-scale="5" animation="spin" style="margin-left:45%;">
-        <b-icon visibility="hidden" id="caritasad" stacked icon="emoji-dizzy" variant="danger" scale="5.0" 
+        <b-icon visibility="hidden" id="caritasad" stacked icon="emoji-dizzy" variant="danger" scale="5.0"
         animation="throb">
         </b-icon>
       </b-iconstack>
@@ -35,7 +35,7 @@
       <div class="col-sm">
         <div id="preguntas" style="margin-left: 10px; margin-left: -100px"></div>
         <div id="respuestas" style="margin-top: 5%; margin-left: -100px"></div>
-        <b-button disabled id="responder" type="button" variant="danger" style="margin-top: 30px; margin-left: -100px" 
+        <b-button disabled id="responder" type="button" variant="danger" style="margin-top: 30px; margin-left: -100px"
         v-on:click="comprobar">Responder</b-button>
       </div>
 
@@ -44,7 +44,7 @@
         <div class="wheel-pointer" @click="onClickRotate">
           Start
         </div>
-        
+
         <div class="wheel-bg" :class="{freeze: freeze}" :style="`transform: rotate(${wheelDeg}deg)`">
           <div class="prize-list">
             <div class="prize-item-wrapper" v-for="(item,index) in prizeList" :key="index">
@@ -61,7 +61,7 @@
     </div>
   </div>
   <div>
-    <h2 style="margin-top: 22%;text-align: center;">Scores</h2>
+    <h2 style="margin-top: 32%;text-align: center;">Scores</h2>
     <b-table style="text-align: center;" striped hover :items="tabla"></b-table>
   </div>
   <div>
@@ -75,7 +75,7 @@
   import 'bootstrap/dist/css/bootstrap.css';
   import 'bootstrap-vue/dist/bootstrap-vue.css';
   import axios from 'axios';
- 
+
   const $ = require('jquery')
   // Lo declaramos globalmente
   window.$ = $
@@ -116,7 +116,7 @@
     "Diseñar,modelar,evaluar,adaptar"
   ]
   var guardarResp = []
-  
+
   export default {
 
       data() {
@@ -178,8 +178,8 @@
           //console.log(vue.posts)
           for (var f in vue.posts) {
             tabla[f] = {
-            Nombre : String(vue.posts[f].username), 
-            Tiempo : String(vue.posts[f].tiempo), 
+            Nombre : String(vue.posts[f].username),
+            Tiempo : String(vue.posts[f].tiempo),
             Puntaje : String(vue.posts[f].puntuacion),
             Categoria : String(vue.posts[f].categoria)}
           }
@@ -201,12 +201,12 @@
         async actEsta(){
           const respuesta = await this.compActEsta();
           //console.log("\n++++++\n")
-          //console.log(respuesta.data); 
+          //console.log(respuesta.data);
           this.tiempodb = (respuesta.data[0]);
           this.aciertosdb = (respuesta.data[1]);
           this.actualizarRanking(this.pickCategoria(this.tiempodeJuego,this.respuestasAcertadas));
         },
-        
+
         async compActEsta(){
           return await axios.get('https://pepunab.herokuapp.com/PepData/getUserEstadisticas/RuletaChallenge/'+
           this.$sesionRuleta+'/'+this.$passRuleta,{crossdomain: true})
@@ -224,7 +224,7 @@
             console.log(response.data);
           });
         },
-        
+
         pickCategoria(tiempo,puntuacion){
           var categorias = ['Noob','Principiante','Sargento','Veterano'];
           if(tiempo > 300){
@@ -248,13 +248,13 @@
         comprobar(){
           var respu = $("input[name='selector']:checked").val();
           this.validar = true; //Permitir que gire de nuevo
-          if(resp_correctas.includes(respu)){ 
+          if(resp_correctas.includes(respu)){
             document.getElementById("caritafachera").style.visibility = "visible";
-            this.tiempodeJuego = this.tiempodeJuego + (this.elapsedTime)/1000;           
-            alert("Sí!!, Esta es la respuesta correcta uwu: "+" \nTiempo acumulado: "+this.tiempodeJuego+" segundos");     
+            this.tiempodeJuego = this.tiempodeJuego + (this.elapsedTime)/1000;
+            alert("Sí!!, Esta es la respuesta correcta uwu: "+" \nTiempo acumulado: "+this.tiempodeJuego+" segundos");
             this.respuestasAcertadas = this.respuestasAcertadas + 1;
             setTimeout(() =>{document.getElementById("caritafachera").style.visibility = "hidden";},3500);
-            this.onClickRotate();   
+            this.onClickRotate();
           }
           else{
             document.getElementById("caritasad").style.visibility = "visible";
@@ -300,15 +300,15 @@
           '\n\nEl ranking se actualizará en breve ..... loading');
           setTimeout(() =>{
             this.$router.go();
-          },5000) 
+          },5000)
         },
         roll(result) {
           this.reset();
           if(guardarResp.length<5){
             this.rolling = true;
             const { wheelDeg, prizeList } = this;
-            this.wheelDeg = wheelDeg - wheelDeg % 360 + 6 * 360 + (360 - 360 / prizeList.length * result);  
-          
+            this.wheelDeg = wheelDeg - wheelDeg % 360 + 6 * 360 + (360 - 360 / prizeList.length * result);
+
             setTimeout(() => {
               this.rolling = false;
               if(guardarResp.length>0 && guardarResp.includes(prizeList[result].name)){
@@ -316,11 +316,11 @@
                 document.getElementById("responder").disabled = true;
                 this.onClickRotate();
               }else{
-                guardarResp.push(prizeList[result].name); 
+                guardarResp.push(prizeList[result].name);
                 alert("Pregunta：" + prizeList[result].name+ " \n\nResponde tan rápido como puedas!!");
                 document.getElementById("responder").disabled = false;
                 this.start();
-              } 
+              }
             },4500);
             this.menu(result);
             this.validar = false; //Impedir que gire mientras responde las preguntas
@@ -328,10 +328,10 @@
             this.actEsta();
             alert("Felicidades Has llenado todas las palabras!! \n❆ Tiempo gastado: "+
               this.tiempodeJuego+' segundos'+"\n❆ Respuestas acertadas: "+this.respuestasAcertadas
-              +'\n\nEl ranking se actualizará en breve ..... loading');        
+              +'\n\nEl ranking se actualizará en breve ..... loading');
             setTimeout(() =>{
               this.$router.go();
-            },5000) 
+            },5000)
           }
         },
         start() {
@@ -419,7 +419,7 @@
     overflow: hidden;
     transition: transform 4s ease-in-out;
     background: #7eef97;
-  } 
+  }
   .freeze {
       transition: none;
       background: red;

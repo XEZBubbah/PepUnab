@@ -24,10 +24,11 @@
     <li class="lolo"><a data-toggle="tab" href="#ID">Inteligencia Digital</a></li>
     <li class="lolo"><a data-toggle="tab" href="#CD">Ciencia de Datos</a></li>
   </ul>
-</div>
+
 
   <div class="tab-content">
     <div id="Energia" class="tab-pane fade in active">
+    <br>
       <h4 style="text-align: center;">Eficiencia energetica</h4>
       <p>
         <br>
@@ -42,11 +43,12 @@
       en que seamos nosotros quienes consumamos menos y de forma más “verde”.</p>
       <p class="centrado">
         <br>
-        <img src="../Imagenes/E-E.jpg" align="middle" width="250"/>
+        <img id="imga" src="../Imagenes/E-E.jpg" align="middle" width="300"/>
         <br>
       </p>
   </div>
   <div id="RV" class="tab-pane fade">
+  <br>
     <h4 style="text-align: center;">Realidad virtual</h4>
     <p>
       <br>
@@ -62,11 +64,12 @@
       consigo las evoluciones pertinentes tanto en dispositivos como en el diseño de interfaces.</p>
       <p class="centrado">
         <br>
-        <img src="../Imagenes/R-V.png" align="middle" width="250"/>
+        <img id="imga" src="../Imagenes/R-V.png" align="middle" width="300"/>
         <br>
       </p>
   </div>
   <div id="IA" class="tab-pane fade">
+  <br>
     <h4 style="text-align: center;">Inteligencia Artificial</h4>
     <p>
       <br>
@@ -80,11 +83,12 @@
       otras técnicas de IA en aplicaciones que utilizamos diariamente.</p>
       <p class="centrado">
         <br>
-        <img src="../Imagenes/inteligencia-artificial.jpg" align="middle" width="250"/>
+        <img id="imga" src="../Imagenes/inteligencia-artificial.jpg" align="middle" width="300"/>
         <br>
     </p>
   </div>
   <div id="ID" class="tab-pane fade">
+  <br>
     <h4 style="text-align: center;">Inteligencia Digital</h4>
     <p>
       <br>
@@ -96,11 +100,12 @@
       Analytics Suite de AT Internet está diseñado para ayudar a las empresas a profundizar y a mejorar su inteligencia digital.</p>
       <p class="centrado">
         <br>
-        <img src="../Imagenes/I-D.jpg" align="middle" width="250"/>
+        <img id="imga" src="../Imagenes/I-D.jpg" align="middle" width="300"/>
         <br>
       </p>
   </div>
   <div id="CD" class="tab-pane fade">
+  <br>
     <h4 style="text-align: center;">Ciencia de Datos</h4>
     <p>
       <br>
@@ -113,9 +118,10 @@
       digital, con cada vez más creciente velocidad, volumen, y variedad.</p>
       <p class="centrado">
         <br>
-        <img src="../Imagenes/C-D.jpeg" align="middle" width="250"/>
+        <img id="imga" src="../Imagenes/C-D.jpeg" align="middle" width="300"/>
         <br>
       </p>
+  </div>
   </div>
 </div>
 
@@ -152,7 +158,11 @@ export default {
 .textoA{
   margin: 0 auto;
   text-align: justify;
-  width:100%;
+  width:90%;
+}
+
+#imga{
+  border-radius:10%;
 }
 
 .title{

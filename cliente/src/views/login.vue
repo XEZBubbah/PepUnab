@@ -56,8 +56,8 @@
             </div>
         </div>
         <div>
-            
-            
+
+
         </div>
   </v-app>
 </template>
@@ -79,7 +79,7 @@
             async establecerSesion() {
                 var usuario = this.input.username;
                 var codigo = this.input.password;
-                if(usuario != "" && codigo != ""){                 
+                if(usuario != "" && codigo != ""){
                     return await axios.get('https://pepunab.herokuapp.com/PepData/getValidation/RuletaChallenge/'
                     +usuario+'/'+codigo,{crossdomain:true})
                 }else{
@@ -95,7 +95,7 @@
 
                     Vue.prototype.$sesionRuleta = response.data[0]['username'];
                     Vue.prototype.$passRuleta = response.data[0]['password'];
-                    
+
                     console.log('good');
                     alert("Has iniciado sesión :) \nPreparate para jugar!!!!");
                     setTimeout(() =>{this.$router.push('/RuletaPep')},2000);

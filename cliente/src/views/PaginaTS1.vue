@@ -414,9 +414,7 @@ display: flex;
   font-family:Roboto;
 }
 
-.container{
-border:1px solid black;
-}
+
 
 .settings{
   padding:3px 6px 6px;

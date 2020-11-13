@@ -1,7 +1,7 @@
 <template>
   <v-app>
-
-  <img src="../Imagenes/patio_central.jpg"/>
+  <div class="ultracontainer">
+  <img src="../Imagenes/patio_central.jpg" width=100% />
     <hr>
     <p>
       <br>
@@ -25,7 +25,9 @@
 
     <hr>
     <h1 style="font-family: 'Courier New', Arial, Courier, monospace; font-weight:550;"><router-link to='/'>PEPWEB</router-link></h1>
+      </div>
   </v-app>
+
 </template>
 
 <script>
