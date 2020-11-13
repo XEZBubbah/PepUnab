@@ -29,10 +29,10 @@
 <div id="your-attempt" class="mono your-attempt" placeholder="Your text will appear here"></div>
 <div class="results">
   <ul class="stats">
-    <li>Palabras por minuto <span id="wpm">0</span></li>
-    <li>Contador de palabras<span id="wordcount">0</span></li>
-    <li>Tiempo <span id="timer">0</span></li>
-    <li>Errores <span id="errors">0</span></li>
+    <li class="loler">Palabras por minuto <span id="wpm">0</span></li>
+    <li class="loler">Contador de palabras<span id="wordcount">0</span></li>
+    <li class="loler">Tiempo <span id="timer">0</span></li>
+    <li class="loler">Errores <span id="errors">0</span></li>
   </ul>
 </div>
 <hr style="clear:both;" />
@@ -268,6 +268,10 @@ $yellow: #2222ff;
 $red: #99f;
 $white: #fff;
 
+.loler{
+width:33.3333%;
+text-align:center;
+}
 
 #output{
 text-align:center;
@@ -321,6 +325,7 @@ display: flex;
   font-weight:900;
   max-width:1000px;
   margin:0 auto;
+  width:100%;
   li{
     width:25%;
     float:left;
