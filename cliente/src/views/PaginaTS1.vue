@@ -17,7 +17,7 @@
 <div class="reglas">
 <ul class="stats">
   <li>-Inicia Sesión para poder registrar tu tiempo</li>
-  <li>-Para iniciar dale a la tecla espacio</li>
+  <li>-Para iniciar dale al botón de "Empezar" y luego a la tecla espacio</li>
   <li>-Escribe el texto lo más rapido que puedas</li>
   <li>-No olvides darle a Finalizar para subir tus datos</li>
 </ul>
@@ -40,7 +40,7 @@
 <textarea name="" id="input_text" cols="30" rows="10"> El documento presenta los orígenes de la profesión, el contexto general y el contexto específico de la Ingeniería de Sistemas, la coherencia entre el proyecto educativo institucional y este proyecto educativo de programa, la misión, visión, los elementos fundamentales del modelo educativo y pedagógico del programa y las estrategias pedagógicas que le dan identidad a la formación ofrecida por la UNAB en su programa de Ingeniería de Sistemas.</textarea>
 </div>
 <div class="settings">
-  <a href="#/TypingSpeed" id="reset">Reset</a>
+  <a id="comenzarj">Empezar</a> | <a href="#/TypingSpeed" id="reset">Reiniciar</a>
 </div>
 </div>
 
@@ -165,6 +165,9 @@ var current_string = letters.substring(index, index + character_length);
 
 var wordcount = 0;
 
+
+function playing(){
+
 $(window).keypress(function(evt){
   if(!started){
     start();
@@ -201,6 +204,10 @@ $(window).keypress(function(evt){
   }
 });
 
+}
+
+
+
 var timer = 0;
 var wpm = 0;
 var errors = 0;
@@ -212,6 +219,10 @@ let vue = this;
 
 $("body").on("click", "#reset", function() {
   reset();
+});
+
+$("body").on("click", "#comenzarj", function() {
+  playing();
 });
 
 function start(){
