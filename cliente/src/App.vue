@@ -31,5 +31,4 @@
       background: rgb(255,168,52);
       background: linear-gradient(180deg, rgba(255,168,52,1) 0%, rgba(241,121,8,1) 36%, rgba(237,222,53,1) 72%, rgba(245,245,168,1) 88%);
 }
-
 </style>

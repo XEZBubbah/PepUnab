@@ -39,9 +39,9 @@
                     console.log(reb.data);
                     if(reb.data == null){
                         console.log('good');
-                        axios.post('https://pepunab.herokuapp.com/PepData/post/RuletaChallenge/'+this.input.username+'/'+this.input.password,{crossdomain: true}); 
+                        axios.post('https://pepunab.herokuapp.com/PepData/post/RuletaChallenge/'+this.input.username+'/'+this.input.password,{crossdomain: true});
                         alert("Registro exitoso, Se creó su usuario :)");
-                        setTimeout(() =>{this.$router.push('/loginPal')},2000);
+                        setTimeout(() =>{this.$router.push('/login')},2000);
                     }else{
                         console.log('bad');
                         alert("El username ingresado ya está en uso :( , intenta con una diferente");
