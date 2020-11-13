@@ -2,7 +2,7 @@
   <v-app>
     <h2 style="text-align: center;font-family: 'Courier New', Arial, Courier, monospace; font-weight:550;">¿Cuál es el Propósito de la ingenieria de sistemas?</h2>
      <p class="centrado">
-      <img id="imgaa" src="../Imagenes/Propósito.jpg" align="middle" width="400"/>
+      <img id="imgaa" src="../Imagenes/proposito.jpg" align="middle" width="400"/>
     </p>
     <p style="font-family: 'Courier New', Arial, Courier, monospace; font-weight:550;">
 <div class=tab>
